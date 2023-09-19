@@ -1,0 +1,48 @@
+Algoritmo SistemaCalificaciones
+    Definir grado, usuarioDocente, contrasenaDocente como Cadena
+    Definir estudiantes como Cadena
+    Definir notas como Real
+    Definir promedios como Real
+    Definir mejoresPromedios como Real
+	Dimension estudiantes[10]
+	Dimension notas[10,3]
+	Dimension mejoresPromedios[3]
+	Dimension promedios[10]
+	    Escribir "Bienvenido al Sistema de Calificaciones de la Escuela Antártida Argentina"
+    Escribir "Por favor, seleccione el grado (1° a 6°):"
+    Leer grado
+    Escribir "Ingrese el usuario de la docente:"
+    Leer usuarioDocente
+    Escribir "Ingrese la contraseña de la docente:"
+    Leer contrasenaDocente
+	
+    Para i desde 1 hasta 10 Hacer	
+        Escribir "Ingrese el nombre y apellido del estudiante ", i, ":"	
+        Leer estudiantes[i]		
+    FinPara
+
+    Para i desde 1 hasta 10 Hacer
+        Escribir "Ingrese las tres notas del estudiante ", estudiantes(i), ":"
+        Leer notas[i, 1]
+        Leer notas[i, 2]
+        Leer notas[i, 3]
+        promedios[i]<- (notas[i, 1] + notas[i, 2] + notas[i, 3]) / 3
+    FinPara
+	
+    Para i desde 1 hasta 3 Hacer
+        mejoresPromedios[i]<- 0
+        Para j desde 1 hasta 10 Hacer
+            Si promedios[j]> mejoresPromedios[i] Entonces
+                mejoresPromedios[i]<- promedios[j]
+            FinSi
+        FinPara
+    FinPara
+    Escribir "Promedios del grado ", grado, ":"
+    Para i desde 1 hasta 10 Hacer
+        Escribir "Estudiante ", estudiantes[i], ": ", promedios[i]
+    FinPara	
+    Escribir "Los tres mejores promedios son:"
+    Para i desde 1 hasta 3 Hacer
+        Escribir "Puesto ", i, ": ", mejoresPromedios[i]
+    FinPara
+FinAlgoritmo
